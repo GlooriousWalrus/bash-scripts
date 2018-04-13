@@ -190,6 +190,10 @@ function install_librenms {
 
 	cp /opt/librenms/librenms.nonroot.cron /etc/cron.d/librenms
 
+	chmod 775 /opt/librenms/rrd
+	chown -R librenms:librenms /opt/librenms
+	chmod ug+rw /opt/librenms/logs
+
 	librepassword=$(random_password)
 
 	/usr/bin/php7.0 build-base.php
